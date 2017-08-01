@@ -13,8 +13,8 @@ Zabbix上的Hadoop监控模板。
 - {$HADOOP_NAMENODE_METRICS_PORT}
 - {$ZABBIX_NAME}
 
-> `$HADOOP_NAMENODE_HOST`是要监控的主机hostname，需要在Zabbix Server主机上的hosts文件中配置该hostname； 
-> `$HADOOP_NAMENODE_METRICS_PORT`是NameNode WebUI的端口，通常是`50070`； 
+> `$HADOOP_NAMENODE_HOST`是要监控的主机hostname，需要在Zabbix Server主机上的hosts文件中配置该hostname；  
+> `$HADOOP_NAMENODE_METRICS_PORT`是NameNode WebUI的端口，通常是`50070`；  
 > `$ZABBIX_NAME`是在Zabbix前端配置的要监控的主机名。
 
 然后上传`/hadoop-mikoomi-template/`目录下剩余的三个脚本文件到Zabbix Server主机上存放Zabbix外部脚本的文件夹（默认为`/usr/local/share/zabbix/externalscripts/`）中，并使用`chmod +x`赋予三个脚本可执行权限。
