@@ -5,7 +5,7 @@ Zabbix上的Hadoop监控模板。
 - 目前仅支持监控HDFS状态和NameNode的运行数据。
 - 在CentOS7，Zabbix3.2.6，Hadoop2.7.3下测试成功。
 - 项目是参照:[zubayr/zabbix_hadoop_monitoring](https://github.com/zubayr/zabbix_hadoop_monitoring)和[zabbix_mikoomi_templates](https://code.google.com/archive/p/mikoomi/)构建的，特别感谢这两个项目的开发者！！！前面的是使用python脚本抓取的数据，后面的是使用linux shell抓取的数据。
-- 我这里是使用python脚本来解析抽取数据的，linux shell和python都是现学现用，可能会有Bug...
+- 我这里是使用python脚本来解析抽取数据的，linux shell和python都是现学现用，肯定会有不完善的地方...
 
 ## 使用方法 ##
 在zabbix前端导入`/hadoop-mikoomi-template/`目录下的`Template Hadoop.xml`模板文件，链接该模板到Hadoop主机上，并添加三个宏参数：
