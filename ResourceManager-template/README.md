@@ -8,9 +8,9 @@ Zabbix上的YARN ResourceManager监控模板。
 
 ## 使用方法
 在zabbix前端导入`Template Cluster YARN ResourceManager.xml`模板文件，链接该模板到ResourceManager主机上，并根据实际情况在`继承以及主机宏`这里修改三个宏参数：
-> {$HADOOP_YARN_HOST} ResourceManager主机ip或者hostname
-> {$HADOOP_YARN_METRICS_PORT} ResourceManager Web UI的端口，默认是`8088`
-> {$ZABBIX_NAME} Zabbix前端创建当前主机时设置的主机名
+> {$HADOOP_YARN_HOST} ResourceManager主机ip或者hostname   
+> {$HADOOP_YARN_METRICS_PORT} ResourceManager Web UI的端口，默认是`8088`   
+> {$ZABBIX_NAME} Zabbix前端创建当前主机时设置的主机名   
 
 然后上传剩余的两个脚本文件到Zabbix Server主机上存放Zabbix外部脚本的文件夹（默认为`/usr/local/share/zabbix/externalscripts/`）中，并使用`chmod +x`赋予脚本文件可执行权限。
 

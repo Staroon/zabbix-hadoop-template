@@ -7,9 +7,9 @@
 
 ## 使用方法
 在zabbix前端导入`Template Cluster Hadoop.xml`模板文件，链接该模板到Hadoop主机上，并根据实际情况在`继承以及主机宏`这里修改三个宏参数：
-> {$HADOOP_NAMENODE_HOST} NameNode主机ip或者hostname
-> {$HADOOP_NAMENODE_METRICS_PORT} NameNode Web UI端口，默认为`50070`
-> {$ZABBIX_NAME} Zabbix前端创建当前主机时设置的主机名
+> {$HADOOP_NAMENODE_HOST} NameNode主机ip或者hostname   
+> {$HADOOP_NAMENODE_METRICS_PORT} NameNode Web UI端口，默认为`50070`   
+> {$ZABBIX_NAME} Zabbix前端创建当前主机时设置的主机名   
 
 然后上传剩余的两个脚本文件到Zabbix Server主机上存放Zabbix外部脚本的文件夹（默认为`/usr/local/share/zabbix/externalscripts/`）中，并使用`chmod +x`赋予脚本文件可执行权限。
 
