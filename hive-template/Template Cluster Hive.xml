@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-08-04T08:38:42Z</date>
+    <date>2017-08-07T08:42:58Z</date>
     <groups>
         <group>
             <name>Hadoop集群</name>

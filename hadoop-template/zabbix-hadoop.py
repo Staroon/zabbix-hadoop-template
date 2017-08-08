@@ -49,11 +49,6 @@ def load_url_as_dictionary(url):
 
 def json_processing(json_dict, monitor_type):
 
-    TB = 1024 * 1024 * 1024 * 1024
-    GB = 1024 * 1024 * 1024
-    MB = 1024 * 1024
-    KB = 1024
-
     namenode_dict = {}
 
     if "NN" == monitor_type:
@@ -88,11 +83,11 @@ def json_processing(json_dict, monitor_type):
         # NameNodeInfo
         namenode_dict['files_and_directorys'] = json_dict['beans'][4]['TotalFiles']
         namenode_dict['blocks'] = json_dict['beans'][4]['TotalBlocks']
-        namenode_dict['configured_capacity'] = min_value_display(float(json_dict['beans'][4]['Total']) / GB)
-        namenode_dict['dfs_used'] = min_value_display(float(json_dict['beans'][4]['Used']) / GB)
+        namenode_dict['configured_capacity'] = json_dict['beans'][4]['Total']
+        namenode_dict['dfs_used'] = json_dict['beans'][4]['Used']
         namenode_dict['dfs_used_persent'] = min_value_display(float(json_dict['beans'][4]['PercentUsed']))
-        namenode_dict['non_dfs_used'] = min_value_display(float(json_dict['beans'][4]['NonDfsUsedSpace']) / GB)
-        namenode_dict['dfs_remaining'] = min_value_display(float(json_dict['beans'][4]['Free']) / GB)
+        namenode_dict['non_dfs_used'] = json_dict['beans'][4]['NonDfsUsedSpace']
+        namenode_dict['dfs_remaining'] = json_dict['beans'][4]['Free']
         namenode_dict['dfs_remaining_persent'] = min_value_display(float(json_dict['beans'][4]['PercentRemaining']))
         datanodes_usages = json.loads(json_dict['beans'][4]['NodeUsage'])
         namenode_dict['min_datanodes_usages'] = datanodes_usages['nodeUsage']['min']
@@ -103,6 +98,7 @@ def json_processing(json_dict, monitor_type):
 
         HIGH_CONST = 99999
         LOW_CONST = -99999
+        GB = 1024 * 1024 * 1024
 
         max_node_remaining = LOW_CONST
         min_node_remaining = HIGH_CONST
@@ -141,6 +137,7 @@ def json_processing(json_dict, monitor_type):
         print '''
                 The <monitor_type> is NN or DFS.
         '''
+        exit()
 
 def write_data_to_file(json, file_path, hadoop_name_in_zabbix):
     txt_file = open(file_path, 'w+')
@@ -162,13 +159,13 @@ if __name__ == '__main__':
     # logging.basicConfig(level=logging.DEBUG)
     if len(sys.argv) == 6:
 
-        namenode_name = sys.argv[1]
+        namenode_host = sys.argv[1]
         namenode_listen_port = sys.argv[2]
         file_path = sys.argv[3]
         nodename_in_zabbix = sys.argv[4]
         monitor_type=sys.argv[5]
 
-        url = get_url(namenode_name, namenode_listen_port)
+        url = get_url(namenode_host, namenode_listen_port)
         json_as_dictionary = load_url_as_dictionary(url)
         json_processed = json_processing(json_as_dictionary, monitor_type)
         write_data_to_file(json_processed, file_path, nodename_in_zabbix)

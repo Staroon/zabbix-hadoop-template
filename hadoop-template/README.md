@@ -63,3 +63,9 @@
 - 有一个或多个节点处于Dead状态
 - 集群中出现了可用存储空间不足20%的节点
 - 集群中处于Live状态的节点数量发生了变化
+
+## 图片预览 
+HDFS监控项：
+![](http://or0h1cjna.bkt.clouddn.com/git/zabbix-template/zabbix2.png)
+NameNode监控项：
+![](http://or0h1cjna.bkt.clouddn.com/git/zabbix-template/zabbix3.png)

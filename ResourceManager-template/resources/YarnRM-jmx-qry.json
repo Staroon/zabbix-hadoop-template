@@ -1,9 +1,9 @@
 {
-  "beans" : [ {0
+  "beans" : [ {
     "name" : "Hadoop:service=ResourceManager,name=RMNMInfo",
     "modelerType" : "org.apache.hadoop.yarn.server.resourcemanager.RMNMInfo",
     "LiveNodeManagers" : "[{\"HostName\":\"worker2\",\"Rack\":\"/default-rack\",\"State\":\"RUNNING\",\"NodeId\":\"worker2:38855\",\"NodeHTTPAddress\":\"worker2:8042\",\"LastHealthUpdate\":1501635981559,\"HealthReport\":\"\",\"NodeManagerVersion\":\"2.7.3\",\"NumContainers\":0,\"UsedMemoryMB\":0,\"AvailableMemoryMB\":8192},{\"HostName\":\"worker1\",\"Rack\":\"/default-rack\",\"State\":\"RUNNING\",\"NodeId\":\"worker1:42871\",\"NodeHTTPAddress\":\"worker1:8042\",\"LastHealthUpdate\":1501635981622,\"HealthReport\":\"\",\"NodeManagerVersion\":\"2.7.3\",\"NumContainers\":0,\"UsedMemoryMB\":0,\"AvailableMemoryMB\":8192}]"
-  }, {1
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcActivityForPort8033",
     "modelerType" : "RpcActivityForPort8033",
     "tag.port" : "8033",
@@ -21,7 +21,7 @@
     "RpcAuthorizationSuccesses" : 2,
     "NumOpenConnections" : 0,
     "CallQueueLength" : 0
-  }, {2
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcActivityForPort8031",
     "modelerType" : "RpcActivityForPort8031",
     "tag.port" : "8031",
@@ -39,16 +39,16 @@
     "RpcAuthorizationSuccesses" : 2,
     "NumOpenConnections" : 2,
     "CallQueueLength" : 0
-  }, {3
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcDetailedActivityForPort8032",
     "modelerType" : "RpcDetailedActivityForPort8032",
     "tag.port" : "8032",
     "tag.Context" : "rpcdetailed",
     "tag.Hostname" : "master1"
-  }, {4
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=MetricsSystem,sub=Control",
     "modelerType" : "org.apache.hadoop.metrics2.impl.MetricsSystemImpl"
-  }, {5
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=UgiMetrics",
     "modelerType" : "UgiMetrics",
     "tag.Context" : "ugi",
@@ -59,7 +59,7 @@
     "LoginFailureAvgTime" : 0.0,
     "GetGroupsNumOps" : 0,
     "GetGroupsAvgTime" : 0.0
-  }, {6
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=MetricsSystem,sub=Stats",
     "modelerType" : "MetricsSystem,sub=Stats",
     "tag.Context" : "metricssystem",
@@ -73,7 +73,7 @@
     "PublishNumOps" : 0,
     "PublishAvgTime" : 0.0,
     "DroppedPubAll" : 0
-  }, {7
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=QueueMetrics,q0=root,q1=default",
     "modelerType" : "QueueMetrics,q0=root,q1=default",
     "tag.Queue" : "root.default",
@@ -107,7 +107,7 @@
     "ReservedContainers" : 0,
     "ActiveUsers" : 0,
     "ActiveApplications" : 0
-  }, {8
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=JvmMetrics",
     "modelerType" : "JvmMetrics",
     "tag.Context" : "jvm",
@@ -133,13 +133,13 @@
     "LogError" : 0,
     "LogWarn" : 0,
     "LogInfo" : 161
-  }, {9
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcDetailedActivityForPort8030",
     "modelerType" : "RpcDetailedActivityForPort8030",
     "tag.port" : "8030",
     "tag.Context" : "rpcdetailed",
     "tag.Hostname" : "master1"
-  }, {10
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcActivityForPort8030",
     "modelerType" : "RpcActivityForPort8030",
     "tag.port" : "8030",
@@ -157,7 +157,7 @@
     "RpcAuthorizationSuccesses" : 0,
     "NumOpenConnections" : 0,
     "CallQueueLength" : 0
-  }, {11
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcActivityForPort8032",
     "modelerType" : "RpcActivityForPort8032",
     "tag.port" : "8032",
@@ -175,7 +175,7 @@
     "RpcAuthorizationSuccesses" : 0,
     "NumOpenConnections" : 0,
     "CallQueueLength" : 0
-  }, {12
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=QueueMetrics,q0=root",
     "modelerType" : "QueueMetrics,q0=root",
     "tag.Queue" : "root",
@@ -209,7 +209,7 @@
     "ReservedContainers" : 0,
     "ActiveUsers" : 0,
     "ActiveApplications" : 0
-  }, {13
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcDetailedActivityForPort8031",
     "modelerType" : "RpcDetailedActivityForPort8031",
     "tag.port" : "8031",
@@ -219,7 +219,7 @@
     "RegisterNodeManagerAvgTime" : 11.0,
     "NodeHeartbeatNumOps" : 2333,
     "NodeHeartbeatAvgTime" : 1.2535211267605637
-  }, {14
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=ClusterMetrics",
     "modelerType" : "ClusterMetrics",
     "tag.ClusterMetrics" : "ResourceManager",
@@ -234,7 +234,7 @@
     "AMLaunchDelayAvgTime" : 0.0,
     "AMRegisterDelayNumOps" : 0,
     "AMRegisterDelayAvgTime" : 0.0
-  }, {15
+  }, {
     "name" : "Hadoop:service=ResourceManager,name=RpcDetailedActivityForPort8033",
     "modelerType" : "RpcDetailedActivityForPort8033",
     "tag.port" : "8033",

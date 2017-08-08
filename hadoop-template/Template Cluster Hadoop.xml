@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2017-08-04T08:38:18Z</date>
+    <date>2017-08-07T08:42:30Z</date>
     <groups>
         <group>
             <name>Hadoop集群</name>
@@ -254,7 +254,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>G</units>
+                    <units>B</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -383,7 +383,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>G</units>
+                    <units>B</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -469,7 +469,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>G</units>
+                    <units>B</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -856,7 +856,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>G</units>
+                    <units>GB</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1114,7 +1114,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>G</units>
+                    <units>GB</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -1329,7 +1329,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>G</units>
+                    <units>B</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>

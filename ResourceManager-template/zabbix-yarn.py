@@ -65,9 +65,6 @@ def usage():
             Usage: $SCRIPT_NAME <YarnRM_host> <YarnRM_port> <file_path> <name_in_zabbix>
     '''
 
-def min_value_display(x):
-    return '{0:.2f}'.format(x)
-
 if __name__ == '__main__':
 
     if len(sys.argv) == 5:

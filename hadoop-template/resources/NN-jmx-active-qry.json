@@ -1,5 +1,5 @@
 {
-  "beans" : [ {0
+  "beans" : [ {
     "name" : "Hadoop:service=NameNode,name=JvmMetrics",
     "modelerType" : "JvmMetrics",
     "tag.Context" : "jvm",
@@ -28,7 +28,7 @@
     "LogError" : 0,
     "LogWarn" : 3,
     "LogInfo" : 411
-  }, {1
+  }, {
     "name" : "Hadoop:service=NameNode,name=NameNodeActivity",
     "modelerType" : "NameNodeActivity",
     "tag.ProcessName" : "NameNode",
@@ -79,7 +79,7 @@
     "PutImageNumOps" : 1,
     "PutImageAvgTime" : 113.0,
     "TotalFileOps" : 0
-  }, {2
+  }, {
     "name" : "Hadoop:service=NameNode,name=NameNodeStatus",
     "modelerType" : "org.apache.hadoop.hdfs.server.namenode.NameNode",
     "NNRole" : "NameNode",
@@ -87,7 +87,7 @@
     "SecurityEnabled" : false,
     "LastHATransitionTime" : 1501548434405,
     "State" : "active"
-  }, {3
+  }, {
     "name" : "Hadoop:service=NameNode,name=IPCLoggerChannel-192.168.0.240-8485",
     "modelerType" : "IPCLoggerChannel-192.168.0.240-8485",
     "tag.Context" : "dfs",
@@ -96,7 +96,7 @@
     "LagTimeMillis" : 13,
     "CurrentLagTxns" : 0,
     "QueuedEditsSize" : 0
-  }, {4
+  }, {
     "name" : "Hadoop:service=NameNode,name=NameNodeInfo",
     "modelerType" : "org.apache.hadoop.hdfs.server.namenode.FSNamesystem",
     "Total" : 38205915136,
@@ -136,7 +136,7 @@
     "SoftwareVersion" : "2.7.3",
     "RollingUpgradeStatus" : null,
     "Threads" : 46
-  }, {5
+  }, {
     "name" : "Hadoop:service=NameNode,name=StartupProgress",
     "modelerType" : "StartupProgress",
     "tag.Hostname" : "master1",
@@ -158,7 +158,7 @@
     "SafeModeElapsedTime" : 40803,
     "SafeModeTotal" : 52,
     "SafeModePercentComplete" : 1.0
-  }, {6
+  }, {
     "name" : "Hadoop:service=NameNode,name=IPCLoggerChannel-192.168.0.242-8485",
     "modelerType" : "IPCLoggerChannel-192.168.0.242-8485",
     "tag.Context" : "dfs",
@@ -167,7 +167,7 @@
     "LagTimeMillis" : 13,
     "CurrentLagTxns" : 0,
     "QueuedEditsSize" : 0
-  }, {7
+  }, {
     "name" : "Hadoop:service=NameNode,name=FSNamesystem",
     "modelerType" : "FSNamesystem",
     "tag.Context" : "dfs",
@@ -204,12 +204,12 @@
     "BlockCapacity" : 2097152,
     "StaleDataNodes" : 0,
     "TotalFiles" : 144
-  }, {8
+  }, {
     "name" : "Hadoop:service=NameNode,name=SnapshotInfo",
     "modelerType" : "org.apache.hadoop.hdfs.server.namenode.snapshot.SnapshotManager",
     "SnapshottableDirectories" : [ ],
     "Snapshots" : [ ]
-  }, {9
+  }, {
     "name" : "Hadoop:service=NameNode,name=FSNamesystemState",
     "modelerType" : "org.apache.hadoop.hdfs.server.namenode.FSNamesystem",
     "CapacityTotal" : 38205915136,
@@ -236,7 +236,7 @@
     "NumStaleDataNodes" : 0,
     "NumStaleStorages" : 2,
     "TopUserOpCounts" : "{\"timestamp\":\"2017-08-01T09:49:05+0800\",\"windows\":[{\"windowLenMs\":60000,\"ops\":[]},{\"windowLenMs\":300000,\"ops\":[]},{\"windowLenMs\":1500000,\"ops\":[]}]}"
-  }, {10
+  }, {
     "name" : "Hadoop:service=NameNode,name=RetryCache.NameNodeRetryCache",
     "modelerType" : "RetryCache.NameNodeRetryCache",
     "tag.Context" : "rpc",
@@ -244,7 +244,7 @@
     "CacheHit" : 0,
     "CacheCleared" : 0,
     "CacheUpdated" : 0
-  }, {11
+  }, {
     "name" : "Hadoop:service=NameNode,name=IPCLoggerChannel-192.168.0.241-8485",
     "modelerType" : "IPCLoggerChannel-192.168.0.241-8485",
     "tag.Context" : "dfs",
@@ -253,7 +253,7 @@
     "LagTimeMillis" : 13,
     "CurrentLagTxns" : 0,
     "QueuedEditsSize" : 0
-  }, {12
+  }, {
     "name" : "Hadoop:service=NameNode,name=RpcActivityForPort8020",
     "modelerType" : "RpcActivityForPort8020",
     "tag.port" : "8020",
@@ -271,7 +271,7 @@
     "RpcAuthorizationSuccesses" : 35,
     "NumOpenConnections" : 3,
     "CallQueueLength" : 0
-  }, {13
+  }, {
     "name" : "Hadoop:service=NameNode,name=UgiMetrics",
     "modelerType" : "UgiMetrics",
     "tag.Context" : "ugi",
@@ -282,7 +282,7 @@
     "LoginFailureAvgTime" : 0.0,
     "GetGroupsNumOps" : 0,
     "GetGroupsAvgTime" : 0.0
-  }, {14
+  }, {
     "name" : "Hadoop:service=NameNode,name=RpcDetailedActivityForPort8020",
     "modelerType" : "RpcDetailedActivityForPort8020",
     "tag.port" : "8020",
@@ -304,7 +304,7 @@
     "TransitionToActiveAvgTime" : 3159.0,
     "RollEditLogNumOps" : 30,
     "RollEditLogAvgTime" : 197.0
-  }, {15
+  }, {
     "name" : "Hadoop:service=NameNode,name=MetricsSystem,sub=Stats",
     "modelerType" : "MetricsSystem,sub=Stats",
     "tag.Context" : "metricssystem",
@@ -318,7 +318,7 @@
     "PublishNumOps" : 0,
     "PublishAvgTime" : 0.0,
     "DroppedPubAll" : 0
-  }, {16
+  }, {
     "name" : "Hadoop:service=NameNode,name=MetricsSystem,sub=Control",
     "modelerType" : "org.apache.hadoop.metrics2.impl.MetricsSystemImpl"
   } ]
