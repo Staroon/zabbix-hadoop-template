@@ -4,6 +4,7 @@
 ## 说明
 - 支持监控Zookeeper的运行数据。
 - 在CentOS7，Zabbix3.2.6，Zookeeper3.4.10下测试通过。
+- 需要安装nc(netcat):`yum -y install nc`
 
 ## 使用方法
 在zabbix前端导入`Template Cluster Zookeeper.xml`模板文件，链接该模板到监控主机上，并根据实际情况在`继承以及主机宏`这里修改宏参数：
@@ -13,7 +14,7 @@
 
 完成！
 
-## 当前支持的监控项目(18项)
+## 当前支持的监控项目(17项)
 - Zookeeper[2181]端口监听状态
 - zk_version
 - zk_znode_count
