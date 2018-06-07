@@ -10,12 +10,16 @@ import time
 # Generate URL
 # ---------------------------------
 # This function converts the servername to URL which we need to query.
-def get_url(server_name, listen_port):
+
+
+def get_url(server_name, listen_port, topic_name):
     """
         Generating URL to get the information
+        from namenode/namenode
 
     :param server_name:
     :param listen_port:
+    :param topic_name:
     :return:
     """
 
@@ -27,7 +31,11 @@ def get_url(server_name, listen_port):
         print("Pass valid Hostname")
         exit()
 
-    URL = "http://"+server_name+":"+str(listen_port)+"/jmx?qry=Hadoop:*"
+    if not topic_name:
+        topic_name = "*"
+
+    URL = "http://"+server_name+":" + \
+        str(listen_port)+"/jmx?qry=Hadoop:"+topic_name
     return URL
 
 
@@ -45,63 +53,78 @@ def load_url_as_dictionary(url):
     return json.load(urllib.urlopen(url))
 
 
-def json_processing(json_dict):
+def json_processing(server_name, listen_port):
 
     namenode_dict = {}
 
+    server_json = load_url_as_dictionary(
+        get_url(server_name, listen_port, "service=HBase,*,sub=Server"))
+    jvm_json = load_url_as_dictionary(
+        get_url(server_name, listen_port, "service=HBase,name=JvmMetrics"))
+    ipc_json = load_url_as_dictionary(
+        get_url(server_name, listen_port, "service=HBase,*,sub=IPC"))
+
     # Server
-    isActiveMaster = str(json_dict['beans'][0]['tag.isActiveMaster'])
+    isActiveMaster = str(server_json['beans'][0]['tag.isActiveMaster'])
     namenode_dict['isActive'] = isActiveMaster
-    startTimeStamp = float(str(json_dict['beans'][0]['masterStartTime'])[:10])
+    startTimeStamp = float(
+        str(server_json['beans'][0]['masterStartTime'])[:10])
     startTimeArray = time.localtime(startTimeStamp)
-    namenode_dict['startTime'] = time.strftime('%Y-%m-%d %H:%M:%S', startTimeArray)
+    namenode_dict['startTime'] = time.strftime(
+        '%Y-%m-%d %H:%M:%S', startTimeArray)
     if "true" == isActiveMaster:
-        activeTimeStamp = float(str(json_dict['beans'][0]['masterActiveTime'])[:10])
+        activeTimeStamp = float(
+            str(server_json['beans'][0]['masterActiveTime'])[:10])
         activeTimeArray = time.localtime(activeTimeStamp)
-        namenode_dict['activeTime'] = time.strftime('%Y-%m-%d %H:%M:%S', activeTimeArray)
-        namenode_dict['regionServers'] = json_dict['beans'][0]['numRegionServers']
-        namenode_dict['deadRegionServers'] = json_dict['beans'][0]['numDeadRegionServers']
+        namenode_dict['activeTime'] = time.strftime(
+            '%Y-%m-%d %H:%M:%S', activeTimeArray)
+        namenode_dict['regionServers'] = server_json['beans'][0]['numRegionServers']
+        namenode_dict['deadRegionServers'] = server_json['beans'][0]['numDeadRegionServers']
 
         # JvmMetrics
-        namenode_dict['non_heap_mem_used'] = json_dict['beans'][3]['MemNonHeapUsedM']
-        namenode_dict['committed_non_heap_mem'] = json_dict['beans'][3]['MemNonHeapCommittedM']
-        namenode_dict['heap_mem_used'] = json_dict['beans'][3]['MemHeapUsedM']
-        namenode_dict['committed_heap_mem'] = json_dict['beans'][3]['MemHeapCommittedM']
-        namenode_dict['max_heap_mem'] = json_dict['beans'][3]['MemHeapMaxM']
-        namenode_dict['gcCount'] = json_dict['beans'][3]['GcCount']
-        namenode_dict['gcTimeMillis'] = json_dict['beans'][3]['GcTimeMillis']
-        namenode_dict['threadsRunnable'] = json_dict['beans'][3]['ThreadsRunnable']
-        namenode_dict['threadsBlocked'] = json_dict['beans'][3]['ThreadsBlocked']
-        namenode_dict['threadsWaiting'] = json_dict['beans'][3]['ThreadsWaiting']
+        namenode_dict['non_heap_mem_used'] = jvm_json['beans'][0]['MemNonHeapUsedM']
+        namenode_dict['committed_non_heap_mem'] = jvm_json['beans'][0]['MemNonHeapCommittedM']
+        namenode_dict['heap_mem_used'] = jvm_json['beans'][0]['MemHeapUsedM']
+        namenode_dict['committed_heap_mem'] = jvm_json['beans'][0]['MemHeapCommittedM']
+        namenode_dict['max_heap_mem'] = jvm_json['beans'][0]['MemHeapMaxM']
+        namenode_dict['gcCount'] = jvm_json['beans'][0]['GcCount']
+        namenode_dict['gcTimeMillis'] = jvm_json['beans'][0]['GcTimeMillis']
+        namenode_dict['threadsRunnable'] = jvm_json['beans'][0]['ThreadsRunnable']
+        namenode_dict['threadsBlocked'] = jvm_json['beans'][0]['ThreadsBlocked']
+        namenode_dict['threadsWaiting'] = jvm_json['beans'][0]['ThreadsWaiting']
 
         # IPC
-        namenode_dict['receivedBytes'] = json_dict['beans'][4]['receivedBytes']
-        namenode_dict['sentBytes'] = json_dict['beans'][4]['sentBytes']
+        namenode_dict['receivedBytes'] = ipc_json['beans'][0]['receivedBytes']
+        namenode_dict['sentBytes'] = ipc_json['beans'][0]['sentBytes']
 
     if "false" == isActiveMaster:
         # JvmMetrics
-        namenode_dict['non_heap_mem_used'] = json_dict['beans'][1]['MemNonHeapUsedM']
-        namenode_dict['committed_non_heap_mem'] = json_dict['beans'][1]['MemNonHeapCommittedM']
-        namenode_dict['heap_mem_used'] = json_dict['beans'][1]['MemHeapUsedM']
-        namenode_dict['committed_heap_mem'] = json_dict['beans'][1]['MemHeapCommittedM']
-        namenode_dict['max_heap_mem'] = json_dict['beans'][1]['MemHeapMaxM']
-        namenode_dict['gcCount'] = json_dict['beans'][1]['GcCount']
-        namenode_dict['gcTimeMillis'] = json_dict['beans'][1]['GcTimeMillis']
-        namenode_dict['threadsRunnable'] = json_dict['beans'][1]['ThreadsRunnable']
-        namenode_dict['threadsBlocked'] = json_dict['beans'][1]['ThreadsBlocked']
-        namenode_dict['threadsWaiting'] = json_dict['beans'][1]['ThreadsWaiting']
+        namenode_dict['non_heap_mem_used'] = jvm_json['beans'][0]['MemNonHeapUsedM']
+        namenode_dict['committed_non_heap_mem'] = jvm_json['beans'][0]['MemNonHeapCommittedM']
+        namenode_dict['heap_mem_used'] = jvm_json['beans'][0]['MemHeapUsedM']
+        namenode_dict['committed_heap_mem'] = jvm_json['beans'][0]['MemHeapCommittedM']
+        namenode_dict['max_heap_mem'] = jvm_json['beans'][0]['MemHeapMaxM']
+        namenode_dict['gcCount'] = jvm_json['beans'][0]['GcCount']
+        namenode_dict['gcTimeMillis'] = jvm_json['beans'][0]['GcTimeMillis']
+        namenode_dict['threadsRunnable'] = jvm_json['beans'][0]['ThreadsRunnable']
+        namenode_dict['threadsBlocked'] = jvm_json['beans'][0]['ThreadsBlocked']
+        namenode_dict['threadsWaiting'] = jvm_json['beans'][0]['ThreadsWaiting']
 
     return namenode_dict
+
 
 def write_data_to_file(json, file_path, name_in_zabbix):
     txt_file = open(file_path, 'w+')
     for keys in json:
-        txt_file.writelines(name_in_zabbix +' '+ str(keys) +' '+ str(json[keys]) + '\n')
+        txt_file.writelines(name_in_zabbix + ' ' +
+                            str(keys) + ' ' + str(json[keys]) + '\n')
+
 
 def usage():
     print '''
             Usage: $SCRIPT_NAME <HBaseMaster_host> <port> <file_path> <zabbix_server_name>
     '''
+
 
 if __name__ == '__main__':
 
@@ -112,9 +135,7 @@ if __name__ == '__main__':
         file_path = sys.argv[3]
         name_in_zabbix = sys.argv[4]
 
-        url = get_url(hmaster_host, hmaster_listen_port)
-        json_as_dictionary = load_url_as_dictionary(url)
-        json_processed = json_processing(json_as_dictionary)
+        json_processed = json_processing(hmaster_host, hmaster_listen_port)
         write_data_to_file(json_processed, file_path, name_in_zabbix)
 
     else:
