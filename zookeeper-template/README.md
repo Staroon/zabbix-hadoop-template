@@ -37,4 +37,4 @@
 - Zookeeper[2181]端口未处于监听状态
 
 ## 图片预览
-![](http://or0h1cjna.bkt.clouddn.com/git/zabbix-template/zookeeper.png)
+![](https://blogfiles-1254091060.cos.ap-shanghai.myqcloud.com/git/zabbix-template/zookeeper.png)

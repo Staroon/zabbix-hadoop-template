@@ -66,6 +66,6 @@
 
 ## 图片预览 
 HDFS监控项：
-![](http://or0h1cjna.bkt.clouddn.com/git/zabbix-template/zabbix2.png)
+![](https://blogfiles-1254091060.cos.ap-shanghai.myqcloud.com/git/zabbix-template/zabbix2.png)
 NameNode监控项：
-![](http://or0h1cjna.bkt.clouddn.com/git/zabbix-template/zabbix3.png)
+![](https://blogfiles-1254091060.cos.ap-shanghai.myqcloud.com/git/zabbix-template/zabbix3.png)
